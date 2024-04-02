@@ -19,7 +19,8 @@
     "redux": "^5.0.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-persist": "^6.0.0",
-    "sass": "^1.72.0"
+    "sass": "^1.72.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",
