@@ -227,6 +227,21 @@ const Navbar = () => {
                 </Link>
               </Dropdown>
             </li>
+            <li className={styles.navbar__navRight__ul__li}>
+              <Dropdown menu={{ items }}>
+                <Link
+                  className={`${styles.navbar__navRight__ul__li__a}`}
+                  href="/master/redux"
+                  style={
+                    pathname == "/master/redux"
+                      ? { color: `#1677ff`, borderBottom: `2px solid #1677ff` }
+                      : {}
+                  }
+                >
+                  M. Redux
+                </Link>
+              </Dropdown>
+            </li>
             {/* <li className={styles.navbar__navRight__ul__li}>
               <Link
                 className={styles.navbar__navRight__ul__li__a}
