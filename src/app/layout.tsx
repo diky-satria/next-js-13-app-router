@@ -10,6 +10,9 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "../redux/store";
 import { Provider } from "react-redux";
 
+// toast
+import { Toaster } from "react-hot-toast";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,6 +24,7 @@ export default function RootLayout({
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             {children}
+            <Toaster />
           </PersistGate>
         </Provider>
       </body>

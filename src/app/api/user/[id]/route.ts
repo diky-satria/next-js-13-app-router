@@ -9,7 +9,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    const data =
+    const data: any =
       await prisma.$queryRaw`select * from user where id = ${params.id}`;
 
     if (data.length > 0) {
@@ -70,7 +70,7 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const data =
+    const data: any =
       await prisma.$queryRaw`select * from user where id = ${params.id}`;
     if (data.length <= 0) {
       return NextResponse.json({ message: "Not Found" }, { status: 404 });
@@ -83,7 +83,7 @@ export async function DELETE(
     });
 
     return NextResponse.json(
-      { message: "Success", data: user },
+      { message: "User deleted successfully", data: user },
       { status: 200 }
     );
   } catch (error) {
