@@ -47,6 +47,14 @@ export default function User() {
   const [totalRows, setTotalRows] = useState(0);
   const [limit, setLimit] = useState(10);
 
+  // DIVISION
+  const [division, setDivision] = useState<TypeDivision[]>([]);
+  // MODAL ADD
+  const [isModalOpenAdd, setIsModalOpenAdd] = useState<boolean>(false);
+  // MODAL EDIT
+  const [isModalOpenEdit, setIsModalOpenEdit] = useState<boolean>(false);
+  const [dataEdit, setDataEdit] = useState<DataType>();
+
   const columns: TableColumnsType<DataType> = [
     {
       title: "No",
