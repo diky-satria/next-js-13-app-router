@@ -11,7 +11,7 @@ export const addUserVal = z
       .min(1, { message: "Email is required" })
       .email({ message: "Invalid email address" })
       .refine(async (email) => {
-        const data =
+        const data: any =
           await prisma.$queryRaw`select * from user where email = ${email}`;
 
         if (data.length > 0) {
@@ -46,17 +46,10 @@ export const updateUserVal = z
       .min(1, { message: "Email is required" })
       .email({ message: "Invalid email address" }),
     divisionId: z.string().min(1, { message: "Division is required" }),
-    password: z
-      .string()
-      .min(1, { message: "Password is required" })
-      .min(3, { message: "Password min 3 characters" }),
-    confirmPassword: z
-      .string()
-      .min(1, { message: "Confirm Password is required" }),
   })
   .refine(
     async (data) => {
-      const user =
+      const user: any =
         await prisma.$queryRaw`select * from user where email = ${data.email}`;
 
       if (user.length > 0 && data.email !== data.email_old) {
@@ -69,8 +62,4 @@ export const updateUserVal = z
       message: "Email is registered",
       path: ["email"],
     }
-  )
-  .refine((data) => data.confirmPassword === data.password, {
-    message: "Confirm Password is wrong",
-    path: ["confirmPassword"],
-  });
+  );
