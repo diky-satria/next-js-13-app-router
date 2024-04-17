@@ -46,13 +46,6 @@ export const updateUserVal = z
       .min(1, { message: "Email is required" })
       .email({ message: "Invalid email address" }),
     divisionId: z.string().min(1, { message: "Division is required" }),
-    password: z
-      .string()
-      .min(1, { message: "Password is required" })
-      .min(3, { message: "Password min 3 characters" }),
-    confirmPassword: z
-      .string()
-      .min(1, { message: "Confirm Password is required" }),
   })
   .refine(
     async (data) => {
@@ -69,8 +62,4 @@ export const updateUserVal = z
       message: "Email is registered",
       path: ["email"],
     }
-  )
-  .refine((data) => data.confirmPassword === data.password, {
-    message: "Confirm Password is wrong",
-    path: ["confirmPassword"],
-  });
+  );
